@@ -1,257 +1,145 @@
-# Customer Lifetime Value (CLV) Prediction & Segmentation
+# Insurance Cost Prediction
 
-[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/downloads/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-orange.svg)](https://jupyter.org/)
+A machine learning project that predicts insurance charges based on personal attributes using multiple regression techniques and feature analysis.
 
-> **Optimizing customer acquisition and retention through predictive analytics and intelligent segmentation**
+## 📋 Project Overview
 
-## 📋 Table of Contents
-- [Overview](#overview)
-- [Business Problem](#business-problem)
-- [Technical Approach](#technical-approach)
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Results](#results)
-- [Project Structure](#project-structure)
-- [Technologies Used](#technologies-used)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
+This project analyzes insurance cost data to build predictive models that can estimate insurance charges based on various personal and demographic factors. The analysis includes comprehensive exploratory data analysis (EDA), feature engineering, multicollinearity testing, and model evaluation with feature selection.
 
-## 🎯 Overview
+## 🎯 Objectives
 
-This project addresses a critical challenge for e-commerce companies: **maximizing marketing ROI through data-driven customer lifetime value prediction and segmentation**. Using advanced multivariate statistical techniques and machine learning, we develop a comprehensive framework to identify high-value customers, optimize marketing spend, and personalize customer experiences.
+- Predict insurance charges based on personal attributes
+- Identify the most significant factors affecting insurance costs
+- Build and evaluate multiple regression models
+- Perform feature selection to optimize model performance
+- Analyze relationships between different variables and insurance charges
 
-## 🔍 Business Problem
+## 📊 Dataset Features
 
-### Challenge
-A mid-sized e-commerce company faces inefficient marketing spend allocation due to generic marketing approaches that fail to identify and prioritize the most profitable customers.
+The dataset includes the following features:
+- **Age**: Age of the individual
+- **BMI**: Body Mass Index
+- **Children**: Number of children/dependents
+- **Smoker**: Smoking status (yes/no)
+- **Sex**: Gender (male/female)
+- **Region**: Geographic region
+- **Charges**: Insurance charges (target variable)
 
-### Objectives
-1. **🎯 Predict Customer Lifetime Value (CLV)** - Identify customers with highest long-term value
-2. **👥 Intelligent Customer Segmentation** - Group customers based on behavior and profitability  
-3. **💰 Marketing Channel Optimization** - Allocate budget to most effective acquisition channels
-4. **🎨 Personalization Strategy** - Tailor marketing messages for different customer segments
+## 🔍 Analysis Pipeline
 
-## 📊 Technical Approach
+### 1. Exploratory Data Analysis (EDA)
+- Dataset overview and statistical summary
+- Distribution analysis of insurance charges
+- Feature correlation analysis
+- Data visualization and insights
 
-### Core Statistical Methods
-- **Multivariate Regression** - CLV prediction using customer behavior and demographics
-- **MANOVA (Multivariate Analysis of Variance)** - Compare customer segments across multiple dimensions
-- **Hotelling's T² Test** - Evaluate marketing channel effectiveness
-- **Likelihood Ratio Tests** - Optimal model selection and complexity assessment
-- **Covariance/Correlation Matrix Analysis** - Feature relationship exploration
+### 2. Data Preprocessing
+- Categorical variable encoding
+- Feature scaling and normalization
+- Data cleaning and preparation
 
-### Machine Learning Pipeline
-```
-Data Collection → EDA → Feature Engineering → Model Development → Validation → Segmentation → Business Insights
-```
+### 3. Multicollinearity Analysis
+- Correlation matrix visualization
+- Feature relationship assessment
+- Identification of redundant features
 
-## 🚀 Features
+### 4. Model Building & Evaluation
+- Multiple linear regression implementation
+- Model performance metrics (R², Adjusted R²)
+- Statistical significance testing
+- Feature importance analysis
 
-### Customer Analytics
-- **RFM Analysis** (Recency, Frequency, Monetary)
-- **Behavioral Scoring** (Website engagement, email interactions)
-- **Demographic Profiling** (Age, location, acquisition channel)
-- **Purchase Pattern Analysis** (Seasonality, product preferences)
+### 5. Feature Selection
+- Identification of statistically significant features
+- Model optimization with top features
+- Performance comparison between full and reduced models
 
-### Advanced Modeling
-- **CLV Prediction Model** with 85%+ accuracy
-- **Customer Segmentation** (High/Medium/Low value tiers)
-- **Churn Risk Assessment**
-- **Marketing Attribution Analysis**
+## 📈 Key Findings
 
-### Business Intelligence
-- **ROI Optimization** recommendations
-- **Channel Performance** metrics
-- **Personalization Strategies**
-- **Retention Campaigns** targeting
+Based on the analysis, the most significant factors affecting insurance costs are:
+- **Age**: Older individuals typically have higher insurance costs
+- **BMI**: Body Mass Index significantly impacts charges
+- **Smoking Status**: Smokers have substantially higher insurance costs
+- **Number of Children**: Family size affects insurance pricing
 
-## 🛠️ Installation
+## 🛠️ Technologies Used
 
-### Prerequisites
-```bash
-Python 3.8+
-Jupyter Notebook
-Git
-```
-
-### Setup
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/clv-prediction-segmentation.git
-cd clv-prediction-segmentation
-
-# Create virtual environment
-python -m venv clv_env
-source clv_env/bin/activate  # On Windows: clv_env\Scripts\activate
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Launch Jupyter Notebook
-jupyter notebook
-```
-
-### Required Packages
-```
-pandas>=1.3.0
-numpy>=1.21.0
-scikit-learn>=1.0.0
-statsmodels>=0.13.0
-matplotlib>=3.4.0
-seaborn>=0.11.0
-plotly>=5.0.0
-scipy>=1.7.0
-```
-
-## 📖 Usage
-
-### Quick Start
-```python
-# Import required libraries
-import pandas as pd
-import numpy as np
-from src.clv_model import CLVPredictor
-from src.segmentation import CustomerSegmentation
-
-# Load your data
-data = pd.read_csv('data/customer_data.csv')
-
-# Initialize CLV predictor
-clv_model = CLVPredictor()
-clv_predictions = clv_model.fit_predict(data)
-
-# Perform customer segmentation
-segmentation = CustomerSegmentation()
-segments = segmentation.create_segments(clv_predictions)
-```
-
-### Detailed Analysis
-1. **Data Preparation** - Run `01_data_preprocessing.ipynb`
-2. **Exploratory Analysis** - Execute `02_exploratory_analysis.ipynb`
-3. **Model Development** - Follow `03_clv_modeling.ipynb`
-4. **Segmentation** - Implement `04_customer_segmentation.ipynb`
-5. **Business Insights** - Review `05_business_recommendations.ipynb`
-
-## 📈 Results
-
-### Model Performance
-- **CLV Prediction Accuracy**: R² = 0.87
-- **Cross-Validation RMSE**: $127.45
-- **Feature Importance**: RFM scores (65%), Demographics (20%), Behavioral (15%)
-
-### Business Impact
-| Metric | Improvement |
-|--------|-------------|
-| Customer Lifetime Value | +22% |
-| Acquisition Cost Reduction | -28% |
-| Retention Rate | +15% |
-| Marketing ROI | +3.2x |
-| Campaign Targeting Accuracy | +45% |
-
-### Key Insights
-- **High-value customers** represent 15% of base but generate 60% of revenue
-- **Email engagement** is strongest predictor of CLV after purchase history
-- **Mobile customers** show 23% higher retention rates than desktop users
-- **Seasonal promotions** most effective for mid-tier customer segment
+- **Python**: Primary programming language
+- **Pandas**: Data manipulation and analysis
+- **NumPy**: Numerical computations
+- **Matplotlib/Seaborn**: Data visualization
+- **Scikit-learn**: Machine learning algorithms
+- **Statsmodels**: Statistical modeling and analysis
+- **Jupyter Notebook**: Development environment
 
 ## 📁 Project Structure
 
 ```
-├── data/
-│   ├── raw/                    # Original datasets
-│   ├── processed/              # Cleaned and engineered data
-│   └── external/               # External data sources
-├── notebooks/
-│   ├── 01_data_preprocessing.ipynb
-│   ├── 02_exploratory_analysis.ipynb
-│   ├── 03_clv_modeling.ipynb
-│   ├── 04_customer_segmentation.ipynb
-│   └── 05_business_recommendations.ipynb
-├── src/
-│   ├── data_processing.py      # Data cleaning and preprocessing
-│   ├── feature_engineering.py  # Feature creation functions
-│   ├── clv_model.py           # CLV prediction models
-│   ├── segmentation.py        # Customer segmentation
-│   ├── statistical_tests.py   # MANOVA, Hotelling's T² tests
-│   └── visualization.py       # Plotting and dashboard functions
-├── models/
-│   ├── clv_predictor.pkl      # Trained CLV model
-│   └── segmentation_model.pkl # Customer segmentation model
-├── reports/
-│   ├── figures/               # Generated plots and charts
-│   ├── executive_summary.pdf  # Business presentation
-│   └── technical_report.pdf   # Detailed methodology
-├── requirements.txt
-├── README.md
-└── LICENSE
+Insurance_cost_prediction/
+│
+├── insurance_prediction_project.ipynb    # Main analysis notebook
+├── data/                                 # Dataset files
+├── README.md                            # Project documentation
+└── requirements.txt                     # Python dependencies
 ```
 
-## 🔧 Technologies Used
+## 🚀 Getting Started
 
-### Programming & Analysis
-- **Python** - Primary programming language
-- **Pandas** - Data manipulation and analysis
-- **NumPy** - Numerical computations
-- **Scikit-learn** - Machine learning algorithms
-- **Statsmodels** - Advanced statistical modeling
+### Prerequisites
+- Python 3.7+
+- Jupyter Notebook
+- Required libraries (see requirements.txt)
 
-### Visualization & Reporting
-- **Matplotlib/Seaborn** - Statistical visualizations
-- **Plotly** - Interactive dashboards
-- **Jupyter Notebooks** - Analysis documentation
+### Installation
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/Insurance_cost_prediction.git
+```
 
-### Statistical Techniques
-- **Multivariate Regression** - CLV prediction
-- **MANOVA** - Multi-group comparisons
-- **Hotelling's T² Test** - Channel effectiveness
-- **Likelihood Ratio Tests** - Model selection
-- **Principal Component Analysis** - Dimensionality reduction
+2. Navigate to the project directory:
+```bash
+cd Insurance_cost_prediction
+```
+
+3. Install required dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+4. Launch Jupyter Notebook:
+```bash
+jupyter notebook
+```
+
+5. Open `insurance_prediction_project.ipynb` to explore the analysis
+
+## 📊 Model Performance
+
+The project evaluates model performance using:
+- **R-squared (R²)**: Measures the proportion of variance explained
+- **Adjusted R-squared**: Accounts for the number of predictors
+- **Statistical significance**: P-value analysis for feature importance
+
+## 🎯 Future Enhancements
+
+- Implement additional machine learning algorithms (Random Forest, XGBoost)
+- Cross-validation for robust model evaluation
+- Hyperparameter tuning for optimal performance
+- Feature engineering for improved predictions
+- Deployment as a web application
 
 ## 🤝 Contributing
 
-We welcome contributions! Please follow these steps:
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+## 📝 License
 
-### Development Guidelines
-- Follow PEP 8 style guidelines
-- Add unit tests for new functions
-- Update documentation for new features
-- Ensure all tests pass before submitting PR
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-## 📄 License
+## 📧 Contact
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 📞 Contact
-
-**Your Name** - [your.email@example.com](mailto:your.email@example.com)
-
-**LinkedIn** - [Your LinkedIn Profile](https://linkedin.com/in/yourprofile)
-
-**Project Link** - [https://github.com/yourusername/clv-prediction-segmentation](https://github.com/yourusername/clv-prediction-segmentation)
+For questions or suggestions, please open an issue or contact [your-email@example.com]
 
 ---
 
-### 🌟 If you found this project helpful, please give it a star!
-
-## 🔗 Related Projects
-- [Customer Churn Prediction](https://github.com/yourusername/customer-churn)
-- [Marketing Mix Modeling](https://github.com/yourusername/marketing-mix-model)
-- [Recommendation System](https://github.com/yourusername/recommendation-engine)
-
-## 📚 References
-- Smith, J. (2023). "Customer Lifetime Value in E-commerce". *Journal of Marketing Analytics*
-- Johnson, A. (2022). "Multivariate Statistical Methods for Business Intelligence"
-- Brown, L. (2023). "Advanced Customer Segmentation Techniques"
-
----
-*Last updated: August 2025*
+*This project demonstrates practical application of machine learning techniques for insurance cost prediction and serves as a comprehensive example of data science workflow from EDA to model deployment.*
